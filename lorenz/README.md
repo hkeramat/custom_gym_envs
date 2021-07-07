@@ -26,7 +26,7 @@ The first environment aims at maximizing the number of sign changes of the `x` c
 
 ## ```lorenz-stabilizer-discrete-v0```
 
-The second environment aims at minimizing the number of sign changes of the `x` component. Reward is consistently 1 for each step with negative x, and consistently -1 for each step with positive x (hence this is a dense reward environment). The control-less environments has a reward of -356. The current controlled example has a cumulated reward of 620:
+The second environment aims at minimizing the number of sign changes of the `x` component. Reward is consistently 1 for each step with negative x, and consistently -1 for each step with positive x (hence this is a dense reward environment). The control-less environments has a reward of -356. The current controlled example has a cumulated reward of 734:
 
 <p align="center">
   <img width="900" alt="oscillator_2D" src="save/stabilizer_discrete/lorenz_compare.png">
