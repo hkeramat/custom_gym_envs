@@ -1,1 +1,1 @@
-from pendulum.envs.pendulum import PendulumModified
+from pendulum.envs.pendulum import PendulumDeterministic

@@ -4,8 +4,7 @@ from gym.utils import seeding
 import numpy as np
 from os import path
 
-
-class PendulumModified(gym.Env):
+class PendulumDeterministic(gym.Env):
     metadata = {
         'render.modes': ['human', 'rgb_array'],
         'video.frames_per_second': 30
@@ -54,12 +53,16 @@ class PendulumModified(gym.Env):
         newth = th + newthdot * dt
         newthdot = np.clip(newthdot, -self.max_speed, self.max_speed)
 
+        done = False
+        if (self.stp == 199): done = True
+        self.stp += 1
+
         self.state = np.array([newth, newthdot])
-        return self._get_obs(), -costs, False, {}
+        return self._get_obs(), -costs, done, {}
 
     def reset(self):
-        high = 0.1*np.array([np.pi, 1])
-        self.state = np.array([-np.pi/2.0, 0.0]) + self.np_random.uniform(low=-high, high=high)
+        self.state = np.array([0.0,0.0])
+        self.stp = 0
         self.last_u = None
         return self._get_obs()
 

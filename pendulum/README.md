@@ -1,17 +1,16 @@
-# `pendulum-modified-v0`
+# `pendulum-deterministic-v0`
 
-Continuous pendulum environment with reduced initial state variability. In the original environment, the initial states are:
+Continuous pendulum environment with no initial state variability. In the original environment, the initial states are:
 
 ```
 high = np.array([np.pi, 1])
 self.state = self.np_random.uniform(low=-high, high=high)
 ```
 
-Here, they are reduced to:
+Here, the initial state is simply:
 
 ```
-high = 0.1*np.array([np.pi, 1])
-self.state = np.array([-np.pi/2.0, 0.0]) + self.np_random.uniform(low=-high, high=high)
+self.state = np.array([0.0, 0.0])
 ```
 
 Below is an example of training with an in-house PPO method.
